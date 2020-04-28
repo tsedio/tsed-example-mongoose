@@ -1,6 +1,5 @@
-import {Inject, Service} from "@tsed/common";
+import {Inject, Service,$log} from "@tsed/common";
 import {MongooseModel} from "@tsed/mongoose";
-import {$log} from "ts-log-debug";
 import {Calendar} from "../../models/calendars/Calendar";
 
 

@@ -3,6 +3,7 @@ import {Configuration, Inject} from "@tsed/di";
 import "@tsed/mongoose";
 import "@tsed/platform-express";
 import "@tsed/swagger";
+import "@tsed/ajv";
 import * as bodyParser from "body-parser";
 import * as compress from "compression";
 import * as cookieParser from "cookie-parser";
@@ -21,6 +22,7 @@ import * as methodOverride from "method-override";
     }
   },
   swagger: [{
+    specVersion: "3.0.1",
     path: "/api-docs"
   }],
   debug: false

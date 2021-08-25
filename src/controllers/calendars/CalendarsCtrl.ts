@@ -1,6 +1,6 @@
-import {BodyParams, Controller, Delete, Get, PathParams, Post, Put, Required, Status} from "@tsed/common";
+import {BodyParams, Controller, Delete, Get, PathParams, Post, Put} from "@tsed/common";
+import {Required, Status, Description, Summary} from "@tsed/schema";
 import {NotFound} from "@tsed/exceptions";
-import {Description, Summary} from "@tsed/swagger";
 import {Calendar} from "../../models/calendars/Calendar";
 import {CalendarsService} from "../../services/calendars/CalendarsService";
 import {EventsCtrl} from "../events/EventsCtrl";

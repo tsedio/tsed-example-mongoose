@@ -1,4 +1,5 @@
-import {Description, Property, Name, Required} from "@tsed/common";
+import {Required, Name, Description, Property} from "@tsed/schema";
+
 import {Model, Ref} from "@tsed/mongoose";
 import {Calendar} from "../calendars/Calendar";
 

@@ -22,9 +22,9 @@ import * as methodOverride from "method-override";
       useUnifiedTopology: true
     }
   },
-  swagger: {
+  swagger: [{
     path: "/api-docs"
-  },
+  }],
   debug: false
 })
 export class Server {

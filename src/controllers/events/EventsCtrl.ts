@@ -3,16 +3,14 @@ import {
   Controller,
   Delete,
   Get,
-  MergeParams,
   PathParams,
   Post,
   Put,
-  Required,
-  Status,
   UseBefore
 } from "@tsed/common";
+import { MergeParams } from "@tsed/platform-express";
+import {Required, Status, Description, Summary} from "@tsed/schema";
 import {NotFound} from "@tsed/exceptions";
-import {Description, Summary} from "@tsed/swagger";
 import {CheckCalendarIdMiddleware} from "../../middlewares/calendars/CheckCalendarId";
 import {CalendarEvent} from "../../models/events/CalendarEvent";
 import {CalendarEventsService} from "../../services/calendars/CalendarEventsService";

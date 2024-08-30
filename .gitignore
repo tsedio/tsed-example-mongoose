@@ -41,20 +41,17 @@ test/**/*.js
 test/**/*.js.map
 
 # Test
-/coverage
-/stdout
-/stderr
-/es6/
-/lib/
-/dts/
 /.tmp
-/.nyc_output/
-/mongodb
+/.nyc_output
 
 # IDE
 .vscode
 .idea
 
 # Project
-public
-dist
+/public
+/dist
+
+#env
+.env.local
+.env.development

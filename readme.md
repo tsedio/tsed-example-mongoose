@@ -1,68 +1,67 @@
-# Ts.ED - Mongoose
+<p style="text-align: center" align="center">
+  <a href="https://tsed.io" target="_blank"><img src="https://tsed.io/tsed-og.png" width="200" alt="Ts.ED logo"/></a>
+</p>
 
-Here an example project with Mongoose and Ts.ED framework.
+<div align="center">
+  <h1>Ts.ED - tsed-example-mongoose</h1>
+  <br />
+  <div align="center">
+    <a href="https://cli.tsed.io/">Website</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="https://cli.tsed.io/getting-started.html">Getting started</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="https://api.tsed.io/rest/slack/tsedio/tsed">Slack</a>
+    <span>&nbsp;&nbsp;•&nbsp;&nbsp;</span>
+    <a href="https://twitter.com/TsED_io">Twitter</a>
+  </div>
+  <hr />
+</div>
 
-See [Ts.ED](https://tsed.io) project for more information.
+> An awesome project based on Ts.ED framework
 
-## Features
+## Getting started
 
-- Docker and Docker compose
-- Travis CI
-- Mongoose
-
-[<img src="https://www.docker.com/sites/default/files/social/docker_facebook_share.png" height="100" />](https://docker.com)
-[<img src="https://travis-ci.com/images/logos/TravisCI-Mascot-pride.png" height="100" />](https://travis-ci.org)
-[<img src="http://mongodb-tools.com/img/mongoose.png" height="100" />](https://mongoosejs.com/)
-
-## Checkout
-
-This repository provide getting started project example for each Ts.ED version since `v5.18.1`.
-
-```bash
-git checkout -b https://github.com/tsedio/tsed-example-mongoose/tree/v5.18.1
-```
-
-To checkout another version just replace `v5.18.1` by the desired version.
-
-## Install
-
-> **Important!** Ts.ED requires Node >= 8, Express >= 4 and TypeScript >= 3.
+> **Important!** Ts.ED requires Node >= 14, Express >= 4 and TypeScript >= 4.
 
 ```batch
-npm install
+# install dependencies
+$  install
+
+# serve
+$  start
+
+# build for production
+$  build
+$  start:prod
 ```
 
-## Run
+## Docker
 
 ```
-npm start
+# build docker image
+docker compose build
+
+# start docker image
+docker compose up
 ```
 
-## Contributing
+## Barrelsby
 
-You can make a PR directly on https://github.com/tsedio/ts-express-decorators repository.
+This project uses [barrelsby](https://www.npmjs.com/package/barrelsby) to generate index files to import the controllers.
 
-## Backers
+Edit `.barreslby.json` to customize it:
 
-Thank you to all our backers! 🙏 [[Become a backer](https://opencollective.com/tsed#backer)]
-
-<a href="https://opencollective.com/tsed#backers" target="_blank"><img src="https://opencollective.com/tsed/tiers/backer.svg?width=890"></a>
-
-
-## Sponsors
-
-Support this project by becoming a sponsor. Your logo will show up here with a link to your website. [[Become a sponsor](https://opencollective.com/tsed#sponsor)]
-
-## License
-
-The MIT License (MIT)
-
-Copyright (c) 2016 - 2020 Romain Lenzotti
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-
-[travis]: https://travis-ci.org/
+```json
+{
+  "directory": [
+    "./src/controllers/rest",
+    "./src/controllers/pages"
+  ],
+  "exclude": [
+    "__mock__",
+    "__mocks__",
+    ".spec.ts"
+  ],
+  "delete": true
+}
+```

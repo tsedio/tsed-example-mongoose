@@ -1,27 +1,23 @@
-import {PlatformTest} from "@tsed/common";
-import {isArray} from "@tsed/core";
-import {TestMongooseContext} from "@tsed/testing-mongoose";
-import * as SuperTest from "supertest";
-import {Server} from "../../../Server";
+import { PlatformTest } from "@tsed/common";
+import { isArray } from "@tsed/core";
+import { TestMongooseContext } from "@tsed/testing-mongoose";
+import SuperTest from "supertest";
+import { Server } from "../../../Server";
 
-async function getCalendarFixture(request: SuperTest.SuperTest<SuperTest.Test>): Promise<any> {
+async function getCalendarFixture(request: ReturnType<typeof SuperTest>): Promise<{ id: string }> {
   const response = await request.get("/rest/calendars").expect(200);
 
   return response.body[0];
 }
 
 describe("Calendars", () => {
-  let request: SuperTest.SuperTest<SuperTest.Test>;
-  // bootstrap your expressApplication in first
   beforeAll(TestMongooseContext.bootstrap(Server));
-  beforeAll(() => {
-    request = SuperTest(PlatformTest.callback());
-  });
   afterAll(TestMongooseContext.reset);
 
   // then run your test
   describe("GET /rest/calendars", () => {
     it("should return all calendars", async () => {
+      const request = SuperTest(PlatformTest.callback());
       const response = await request.get("/rest/calendars").expect(200);
 
       expect(isArray(response.body)).toBe(true);
@@ -30,6 +26,7 @@ describe("Calendars", () => {
 
   describe("GET /rest/calendars/:id", () => {
     it("should return all calendars", async () => {
+      const request = SuperTest(PlatformTest.callback());
       // GIVEN
       const calendar = await getCalendarFixture(request);
       // WHEN
@@ -39,6 +36,7 @@ describe("Calendars", () => {
     });
 
     it("should return a 400 when the id has the wrong format", async () => {
+      const request = SuperTest(PlatformTest.callback());
       // WHEN
       const response = await request.get(`/rest/calendars/1`).expect(400);
 
@@ -52,7 +50,7 @@ describe("Calendars", () => {
             keyword: "pattern",
             dataPath: "",
             schemaPath: "#/pattern",
-            params: {pattern: "^[0-9a-fA-F]{24}$"},
+            params: { pattern: "^[0-9a-fA-F]{24}$" },
             message: 'should match pattern "^[0-9a-fA-F]{24}$"'
           }
         ]
@@ -60,6 +58,7 @@ describe("Calendars", () => {
     });
 
     it("should return a 404", async () => {
+      const request = SuperTest(PlatformTest.callback());
       // WHEN
       const response = await request.get(`/rest/calendars/5ce4ee471495836c5e2e4cb0`).expect(404);
 
@@ -74,6 +73,8 @@ describe("Calendars", () => {
 
   describe("PUT /rest/calendars/:id", () => {
     it("should  throw a bad request when payload is empty", async () => {
+      const request = SuperTest(PlatformTest.callback());
+
       // GIVEN
       const calendar = await getCalendarFixture(request);
 
@@ -89,7 +90,7 @@ describe("Calendars", () => {
             keyword: "required",
             dataPath: "",
             schemaPath: "#/required",
-            params: {missingProperty: "name"},
+            params: { missingProperty: "name" },
             message: "should have required property 'name'",
             modelName: "Calendar"
           }
@@ -98,6 +99,8 @@ describe("Calendars", () => {
     });
 
     it("should update the calendar", async () => {
+      const request = SuperTest(PlatformTest.callback());
+
       // GIVEN
       const calendar = await getCalendarFixture(request);
 
@@ -119,6 +122,8 @@ describe("Calendars", () => {
 
   describe("POST /rest/calendars", () => {
     it("should throw a bad request when payload is empty", async () => {
+      const request = SuperTest(PlatformTest.callback());
+
       // WHEN
       const response = await request.post(`/rest/calendars`).expect(400);
 
@@ -131,7 +136,7 @@ describe("Calendars", () => {
             keyword: "required",
             dataPath: "",
             schemaPath: "#/required",
-            params: {missingProperty: "name"},
+            params: { missingProperty: "name" },
             message: "should have required property 'name'",
             modelName: "Calendar"
           }
@@ -140,6 +145,8 @@ describe("Calendars", () => {
     });
 
     it("should add and delete a calendar", async () => {
+      const request = SuperTest(PlatformTest.callback());
+
       // WHEN
       const response = await request
         .post(`/rest/calendars`)

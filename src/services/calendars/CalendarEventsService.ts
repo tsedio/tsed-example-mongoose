@@ -1,8 +1,9 @@
-import {Inject, Service} from "@tsed/common";
-import {MongooseModel} from "@tsed/mongoose";
-import {BadRequest} from "@tsed/exceptions";
-import {$log} from "@tsed/logger";
-import {CalendarEvent} from "../../models/events/CalendarEvent";
+import { Inject, Service } from "@tsed/common";
+import { MongooseModel } from "@tsed/mongoose";
+import { BadRequest } from "@tsed/exceptions";
+import { $log } from "@tsed/logger";
+import { CalendarEvent } from "../../models/events/CalendarEvent";
+import eventsMock from "../../../resources/events.json";
 
 @Service()
 export class CalendarEventsService {
@@ -23,7 +24,7 @@ export class CalendarEventsService {
     const events = await this.Event.find({});
 
     if (events.length === 0) {
-      this.Event.create(...require("../../../resources/events.json"));
+      this.Event.create(...eventsMock);
     }
   }
 
@@ -38,14 +39,14 @@ export class CalendarEventsService {
 
   async save(event: CalendarEvent) {
     CalendarEventsService.checkPrecondition(event);
-    $log.debug({message: "Validate event", event});
+    $log.debug({ message: "Validate event", event });
     const eventModel = new this.Event(event);
 
     await eventModel.validate();
-    $log.debug({message: "Save event", eventModel});
-    await eventModel.update(event, {upsert: true});
+    $log.debug({ message: "Save event", eventModel });
+    await eventModel.updateOne(event, { upsert: true });
 
-    $log.debug({message: "Event saved", event});
+    $log.debug({ message: "Event saved", event });
 
     return eventModel;
   }
@@ -55,12 +56,12 @@ export class CalendarEventsService {
    * @returns {CalendarEvent[]}
    */
   async query(calendarId: string): Promise<CalendarEvent[]> {
-    const events = await this.Event.find({calendarId: calendarId}).exec();
+    const events = await this.Event.find({ calendarId: calendarId }).exec();
 
     return events;
   }
 
-  async remove(id: string): Promise<void> {
-    return await this.Event.findById(id).remove().exec();
+  async remove(id: string) {
+    return await this.Event.findByIdAndDelete(id).exec();
   }
 }

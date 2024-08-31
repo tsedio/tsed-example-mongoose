@@ -1,63 +1,53 @@
-import "@tsed/ajv";
-import {PlatformApplication} from "@tsed/common";
-import {Configuration, Inject} from "@tsed/di";
-import "@tsed/mongoose";
+import { join } from "path";
+import { Configuration, Inject } from "@tsed/di";
+import { PlatformApplication } from "@tsed/common";
 import "@tsed/platform-express"; // /!\ keep this import
+import "@tsed/ajv";
 import "@tsed/swagger";
-import * as bodyParser from "body-parser";
-import * as compress from "compression";
-import * as cookieParser from "cookie-parser";
-import * as methodOverride from "method-override";
-import mongooseConfig from "./config/mongoose";
-import {IndexCtrl} from "./controllers/pages/IndexCtrl";
-import {CalendarsCtrl} from "./controllers/rest/calendars/CalendarsCtrl";
-
-export const rootDir = __dirname;
+import "@tsed/mongoose";
+import { config } from "./config/index";
+import * as rest from "./controllers/rest/index";
+import * as pages from "./controllers/pages/index";
 
 @Configuration({
-  rootDir,
+  ...config,
   acceptMimes: ["application/json"],
   httpPort: process.env.PORT || 8083,
   httpsPort: false, // CHANGE
-  mongoose: mongooseConfig,
-  mount: {
-    "/rest": [CalendarsCtrl],
-    "/": [IndexCtrl]
+  disableComponentsScan: true,
+  ajv: {
+    returnsCoercedValues: true
   },
-  componentsScan: [],
+  mount: {
+    "/rest": [...Object.values(rest)],
+    "/": [...Object.values(pages)]
+  },
   swagger: [
     {
-      path: "/v2/docs",
-      specVersion: "2.0"
-    },
-    {
-      path: "/v3/docs",
+      path: "/doc",
       specVersion: "3.0.1"
     }
   ],
+  middlewares: [
+    "cors",
+    "cookie-parser",
+    "compression",
+    "method-override",
+    "json-parser",
+    { use: "urlencoded-parser", options: { extended: true } }
+  ],
   views: {
-    root: `${rootDir}/../views`,
-    viewEngine: "ejs"
+    root: join(process.cwd(), "../views"),
+    extensions: {
+      ejs: "ejs"
+    }
   },
   exclude: ["**/*.spec.ts"]
 })
 export class Server {
   @Inject()
-  app: PlatformApplication;
+  protected app: PlatformApplication;
 
   @Configuration()
-  settings: Configuration;
-
-  $beforeRoutesInit(): void {
-    this.app
-      .use(cookieParser())
-      .use(compress({}))
-      .use(methodOverride())
-      .use(bodyParser.json())
-      .use(
-        bodyParser.urlencoded({
-          extended: true
-        })
-      );
-  }
+  protected settings: Configuration;
 }

@@ -4084,10 +4084,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"cookie@npm:0.4.0":
-  version: 0.4.0
-  resolution: "cookie@npm:0.4.0"
-  checksum: 10c0/71508a1c8a4e97bb88f42635542ef24ebe7e713f82573ac61e9b289616334d14bfb28210d7979d9ada24b0254f5fb563af938cac13bc8c0c3f60f47a2257f791
+"cookie-signature@npm:1.0.7":
+  version: 1.0.7
+  resolution: "cookie-signature@npm:1.0.7"
+  checksum: 10c0/e7731ad2995ae2efeed6435ec1e22cdd21afef29d300c27281438b1eab2bae04ef0d1a203928c0afec2cee72aa36540b8747406ebe308ad23c8e8cc3c26c9c51
   languageName: node
   linkType: hard
 
@@ -4830,19 +4830,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"express-session@npm:1.17.1":
-  version: 1.17.1
-  resolution: "express-session@npm:1.17.1"
+"express-session@npm:1.18.0":
+  version: 1.18.0
+  resolution: "express-session@npm:1.18.0"
   dependencies:
-    cookie: "npm:0.4.0"
-    cookie-signature: "npm:1.0.6"
+    cookie: "npm:0.6.0"
+    cookie-signature: "npm:1.0.7"
     debug: "npm:2.6.9"
     depd: "npm:~2.0.0"
     on-headers: "npm:~1.0.2"
     parseurl: "npm:~1.3.3"
-    safe-buffer: "npm:5.2.0"
+    safe-buffer: "npm:5.2.1"
     uid-safe: "npm:~2.1.5"
-  checksum: 10c0/104f2f342df4f032cbc9dbafc65bef65aa0aaddcc4e81d584e3513842b14fc4da3654c4769b7ddbee7767849c049f62bd0c7053db06a3fc7fabefa20ffdc7f91
+  checksum: 10c0/5c3f1237f2789cf32f9cd668d3217c228916edfd3b5a686a894a80c7cca63f9ef66bb86a8457074b9b4cc4b2ee97e16781dd4e0cff7829b671ab0db5da0db638
   languageName: node
   linkType: hard
 
@@ -8307,13 +8307,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"safe-buffer@npm:5.2.0":
-  version: 5.2.0
-  resolution: "safe-buffer@npm:5.2.0"
-  checksum: 10c0/9e1d7f6a162b493b54ecc29e60fcedaf4d0b53aa1636088f8f1f40dc5e7ceeb44885983c0de8148a735369e1ce567abe9465e8086e413673706432d4df8cca07
-  languageName: node
-  linkType: hard
-
 "safe-buffer@npm:5.2.1, safe-buffer@npm:~5.2.0":
   version: 5.2.1
   resolution: "safe-buffer@npm:5.2.1"
@@ -9250,7 +9243,7 @@ __metadata:
     eslint-config-prettier: "npm:^9.1.0"
     eslint-plugin-prettier: "npm:^5.2.1"
     express: "npm:^4.19.2"
-    express-session: "npm:1.17.1"
+    express-session: "npm:1.18.0"
     husky: "npm:^9.1.5"
     is-ci: "npm:^3.0.1"
     jest: "npm:^29.7.0"

@@ -1,6 +1,6 @@
-import {Description, Property, Name, Required} from "@tsed/common";
-import {Model, Ref} from "@tsed/mongoose";
-import {Calendar} from "../calendars/Calendar";
+import { Description, Property, Name, Required } from "@tsed/schema";
+import { Model, Ref } from "@tsed/mongoose";
+import { Calendar } from "../calendars/Calendar";
 
 @Model()
 export class CalendarEvent {

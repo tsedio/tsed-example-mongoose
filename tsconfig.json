@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "sourceRoot": "src",
     "module": "commonjs",
-    "target": "es2016",
+    "target": "esnext",
     "sourceMap": true,
     "declaration": false,
     "experimentalDecorators": true,
@@ -17,25 +19,12 @@
     "importHelpers": true,
     "newLine": "LF",
     "noEmit": true,
+    "esModuleInterop": true,
     "resolveJsonModule": true,
-    "lib": [
-      "es7",
-      "dom",
-      "esnext.asynciterable"
-    ],
-    "typeRoots": [
-      "./node_modules/@types"
-    ]
+    "lib": ["es7", "dom", "ESNext.AsyncIterable"],
+    "typeRoots": ["./node_modules/@types"]
   },
-  "include": [
-    "./src/**/*.ts"
-  ],
-  "exclude": [
-    "node_modules",
-    "./public",
-    "dist",
-    "test"
-  ],
+  "include": ["src"],
   "linterOptions": {
     "exclude": []
   }

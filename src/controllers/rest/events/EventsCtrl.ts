@@ -1,10 +1,10 @@
-import {BodyParams, Controller, Delete, Get, Inject, PathParams, Post, Put} from "@tsed/common";
-import {NotFound} from "@tsed/exceptions";
-import {Description, Required, Returns, Status, Summary} from "@tsed/schema";
-import {InCalendarId} from "../../../decorators/calendarId";
-import {EventId} from "../../../decorators/eventId";
-import {CalendarEvent} from "../../../models/events/CalendarEvent";
-import {CalendarEventsService} from "../../../services/calendars/CalendarEventsService";
+import { BodyParams, Controller, Delete, Get, Inject, PathParams, Post, Put } from "@tsed/common";
+import { NotFound } from "@tsed/exceptions";
+import { Description, Required, Returns, Status, Summary } from "@tsed/schema";
+import { InCalendarId } from "../../../decorators/calendarId";
+import { EventId } from "../../../decorators/eventId";
+import { CalendarEvent } from "../../../models/events/CalendarEvent";
+import { CalendarEventsService } from "../../../services/calendars/CalendarEventsService";
 
 @Controller("/:calendarId/events")
 @InCalendarId()
@@ -40,7 +40,7 @@ export class EventsCtrl {
     return this.calendarEventsService
       .find(id)
       .then(() => this.calendarEventsService.save(calendarEvent))
-      .catch((err) => {
+      .catch(() => {
         throw new NotFound("Calendar id not found");
       });
   }
@@ -56,7 +56,7 @@ export class EventsCtrl {
     @Description("The event id")
     @PathParams("id")
     id: string
-  ): Promise<void> {
+  ) {
     return this.calendarEventsService.remove(id);
   }
 

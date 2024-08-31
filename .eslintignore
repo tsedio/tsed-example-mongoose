@@ -1,0 +1,5 @@
+dist
+coverage
+jest.config.js
+processes.config.js
+scripts

@@ -2463,19 +2463,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@tsed/testing-mongoose@npm:7.70.0":
-  version: 7.70.0
-  resolution: "@tsed/testing-mongoose@npm:7.70.0"
+"@tsed/testing-mongoose@npm:7.84.0":
+  version: 7.84.0
+  resolution: "@tsed/testing-mongoose@npm:7.84.0"
   dependencies:
     mongodb-memory-server: "npm:^8.16.0"
     semver: "npm:^7.6.0"
     tslib: "npm:2.6.1"
   peerDependencies:
-    "@tsed/common": 7.70.0
-    "@tsed/core": 7.70.0
-    "@tsed/mongoose": 7.70.0
+    "@tsed/common": 7.84.0
+    "@tsed/core": 7.84.0
+    "@tsed/mongoose": 7.84.0
     mongoose: ">=6.0.0"
-  checksum: 10c0/fb63de4c415e0eb6c33105b0fbd87b7264853b59b14315865b30feefd514340a0feddaa49dd94e74ac64ac9b40fe535809d74448a26375b2c7b0deb4f6181377
+  checksum: 10c0/42d465bdd0aa9c51f91dd4b60e910da3fa8ea66b55492a7cdc77f5351880955a0205729c23e88c97cc91bc48c1d8bd4f491251e7411eb4df9f042e31168f8090
   languageName: node
   linkType: hard
 
@@ -9220,7 +9220,7 @@ __metadata:
     "@tsed/platform-views": "npm:^7.70.0"
     "@tsed/schema": "npm:^7.70.0"
     "@tsed/swagger": "npm:^7.70.0"
-    "@tsed/testing-mongoose": "npm:7.70.0"
+    "@tsed/testing-mongoose": "npm:7.84.0"
     "@types/compression": "npm:^1.7.5"
     "@types/cookie-parser": "npm:^1.4.7"
     "@types/cors": "npm:^2.8.17"

@@ -58,7 +58,7 @@
     "dotenv-expand": "^11.0.6",
     "dotenv-flow": "^4.1.0",
     "express": "^4.19.2",
-    "express-session": "1.17.1",
+    "express-session": "1.18.1",
     "method-override": "^3.0.0",
     "mongoose": "^8.6.0",
     "serve-static": "^1.13.1"

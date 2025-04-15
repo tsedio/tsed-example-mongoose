@@ -2,7 +2,7 @@
 
 Here an example project with Mongoose and Ts.ED framework.
 
-See [Ts.ED](https://tsed.io) project for more information.
+See [Ts.ED](https://tsed.dev) project for more information.
 
 ## Features
 
